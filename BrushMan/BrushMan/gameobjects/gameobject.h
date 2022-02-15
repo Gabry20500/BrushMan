@@ -8,6 +8,14 @@ enum ObjectSymbol : char
 	PLAYER = '@'
 };
 
+enum MoveDirection : int
+{
+	UP = 1,
+	DOWN = -1,
+	RIGHT = 1,
+	LEFT = -1
+};
+
 class GameObject
 {
 public:
@@ -16,6 +24,7 @@ public:
 
 	virtual void onOverlap() = 0;
 private:
+	int currentPosition[3][4];
 	unsigned short height = 0;
 	unsigned short width = 0;
 	const char _symbol;
