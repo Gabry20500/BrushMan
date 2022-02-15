@@ -24,39 +24,44 @@ public:
 	GameObject(char type, unsigned short height, unsigned short width)
 	{
 		_symbol = type;
+		this->height = height;
+		this->width = width;
 
-		area = new char* [height];
+		currPos = new char* [height];
 		for (short i = 0; i < height; i++)
 		{
-			area[i] = new char[width];
+			currPos[i] = new char[width];
 		}
 
 		for (int j = 0; j < height; j++)
 		{
-			std::cout << "\n";
 			for (int i = 0; i < width; i++)
 			{
-				area[j][i] = 32;
-				std::cout << "|" << area[j][i] << "|";
+				currPos[j][i] = 32;
 			}
 		}
+
+
+		set_start_position(1, 2);
 	}
 
 	~GameObject()
 	{
 		for (short i = 0; i < height; i++)
 		{
-			delete[] area[i];
+			delete[] currPos[i];
 		}
 	}
 
 	bool is_overlapping(GameObject go) { return get_area() == go.get_area(); }
+	void set_start_position(unsigned short x, unsigned short y);
+	void draw();
 	//void onOverlap() = 0;
 
 private:
-	char** area = nullptr;
-	unsigned short height = 0;
-	unsigned short width = 0;
+	char** currPos = nullptr;
+	//char** currPos = nullptr;
+	unsigned short height = 0, width = 0, xPos = 0, yPos = 0;;
 	char _symbol;
 
 	unsigned short get_area() { return height * width; }
@@ -64,8 +69,8 @@ private:
 
 int main() {
 
-	GameObject go(ObjectSymbol::PLAYER, 2, 4);
-
+	GameObject go(ObjectSymbol::PLAYER, 4, 4);
+	go.draw();
 
 	system("pause");
 	return 0;
