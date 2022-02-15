@@ -87,19 +87,3 @@ public:
 	virtual void onOverlap() override { std::cout << "im powerup\n"; };
 };
 
-int main() {
-
-	Obstacle obs(ObjectSymbol::BOMB, 4, 4);
-	PowerUp pp(ObjectSymbol::HEARTH, 4, 4);
-
-	obs.set_start_position(1, 3);
-	pp.set_start_position(3, 2);
-	obs.onOverlap();
-	pp.onOverlap();
-
-	obs.draw();
-
-	system("pause");
-	return 0;
-}
-
