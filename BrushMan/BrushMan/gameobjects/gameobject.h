@@ -1,5 +1,8 @@
 #include <iostream>
 
+/// <summary>
+/// Gameobject's symbol on screen
+/// </summary>
 enum ObjectSymbol : char
 {
 	OBJECT = 'x',
@@ -10,6 +13,9 @@ enum ObjectSymbol : char
 	PLAYER = '@'
 };
 
+/// <summary>
+/// int to sum on movement direction
+/// </summary>
 enum MoveDirection : int
 {
 	UP = 1,
@@ -18,6 +24,9 @@ enum MoveDirection : int
 	LEFT = -1
 };
 
+/// <summary>
+/// Base class for the gameobjects in game
+/// </summary>
 class GameObject
 {
 public:
@@ -40,9 +49,6 @@ public:
 				currPos[j][i] = 32;
 			}
 		}
-
-
-		set_start_position(1, 2);
 	}
 
 	~GameObject()
@@ -53,24 +59,45 @@ public:
 		}
 	}
 
-	bool is_overlapping(GameObject go) { return get_area() == go.get_area(); }
+	//bool is_overlapping(GameObject go);
 	void set_start_position(unsigned short x, unsigned short y);
-	void draw();
-	//void onOverlap() = 0;
 
-private:
+	void draw();
+	virtual void onOverlap() { std::cout << "im gameobject\n"; };
+
+protected:
 	char** currPos = nullptr;
-	//char** currPos = nullptr;
 	unsigned short height = 0, width = 0, xPos = 0, yPos = 0;;
 	char _symbol;
 
 	unsigned short get_area() { return height * width; }
 };
 
+class Obstacle : public GameObject
+{
+public:
+	using GameObject::GameObject;
+	virtual void onOverlap() override { std::cout << "im obstacle\n"; };
+};
+
+class PowerUp : public GameObject
+{
+public:
+	using GameObject::GameObject;
+	virtual void onOverlap() override { std::cout << "im powerup\n"; };
+};
+
 int main() {
 
-	GameObject go(ObjectSymbol::PLAYER, 4, 4);
-	go.draw();
+	Obstacle obs(ObjectSymbol::BOMB, 4, 4);
+	PowerUp pp(ObjectSymbol::HEARTH, 4, 4);
+
+	obs.set_start_position(1, 3);
+	pp.set_start_position(3, 2);
+	obs.onOverlap();
+	pp.onOverlap();
+
+	obs.draw();
 
 	system("pause");
 	return 0;
