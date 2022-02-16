@@ -65,6 +65,33 @@ void GameObject::move_lr(MoveDirection& direction)
 	}
 }
 
+void GameObject::move_ud(MoveDirection& direction)
+{
+	switch (direction)
+	{
+	case MoveDirection::UP:
+		if (yPos < width - 1)
+		{
+			currPos[yPos][xPos] = static_cast<char>(ObjectSymbol::EMPTY);
+			yPos += static_cast<int>(direction);
+			currPos[yPos][xPos] = _symbol;
+		}
+		else direction = MoveDirection::DOWN;
+		break;
+	case MoveDirection::DOWN:
+		if (yPos > 0)
+		{
+			currPos[yPos][xPos] = static_cast<char>(ObjectSymbol::EMPTY);
+			yPos += static_cast<int>(direction);
+			currPos[yPos][xPos] = _symbol;
+		}
+		else direction = MoveDirection::UP;
+		break;
+	default:
+		break;
+	}
+}
+
 int main() {
 
 	Obstacle obs(ObjectSymbol::BOMB, 5, 5);
@@ -78,7 +105,7 @@ int main() {
 
 	while (i != 20)
 	{
-		obs.move_lr(dir);
+		obs.move_ud(dir);
 		obs.draw();
 		i++;
 		system("pause");

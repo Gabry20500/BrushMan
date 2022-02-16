@@ -63,6 +63,7 @@ public:
 
 	void draw();
 	void move_lr(MoveDirection& direction);
+	void move_ud(MoveDirection& direction);
 	virtual void onOverlap() { std::cout << "im gameobject\n"; };
 
 
