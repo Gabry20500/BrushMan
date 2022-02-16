@@ -38,6 +38,10 @@ void GameObject::draw()
 	}
 }
 
+/// <summary>
+/// move the gameobject horizontally by a given direction
+/// </summary>
+/// <param name="direction"></param>
 void GameObject::move_lr(MoveDirection& direction)
 {
 	switch (direction)
@@ -65,6 +69,10 @@ void GameObject::move_lr(MoveDirection& direction)
 	}
 }
 
+/// <summary>
+/// move the gameobject vertically by a given direction
+/// </summary>
+/// <param name="direction"></param>
 void GameObject::move_ud(MoveDirection& direction)
 {
 	switch (direction)
@@ -90,29 +98,4 @@ void GameObject::move_ud(MoveDirection& direction)
 	default:
 		break;
 	}
-}
-
-int main() {
-
-	Obstacle obs(ObjectSymbol::BOMB, 5, 5);
-	obs.set_start_position(0, 3);
-
-	obs.draw();
-
-	int i = 0;
-
-	MoveDirection dir = MoveDirection::UP;
-
-	while (i != 20)
-	{
-		obs.move_ud(dir);
-		obs.draw();
-		i++;
-		system("pause");
-
-	}
-
-	system("pause");
-
-	return 0;
 }

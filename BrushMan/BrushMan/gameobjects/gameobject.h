@@ -64,7 +64,7 @@ public:
 	void draw();
 	void move_lr(MoveDirection& direction);
 	void move_ud(MoveDirection& direction);
-	virtual void onOverlap() { std::cout << "im gameobject\n"; };
+	virtual void on_overlap() { std::cout << "im gameobject\n"; };
 
 
 protected:
@@ -79,13 +79,13 @@ class Obstacle : public GameObject
 {
 public:
 	using GameObject::GameObject;
-	virtual void onOverlap() override { std::cout << "im obstacle\n"; };
+	virtual void on_overlap() override { std::cout << "im obstacle\n"; };
 };
 
 class PowerUp : public GameObject
 {
 public:
 	using GameObject::GameObject;
-	virtual void onOverlap() override { std::cout << "im powerup\n"; };
+	virtual void on_overlap() override { std::cout << "im powerup\n"; };
 };
 
