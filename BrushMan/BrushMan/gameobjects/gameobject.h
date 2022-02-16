@@ -3,8 +3,9 @@
 /// <summary>
 /// Gameobject's symbol on screen
 /// </summary>
-enum ObjectSymbol : char
+enum class ObjectSymbol : char
 {
+	EMPTY = 32,
 	OBJECT = 'x',
 	WALL = '/',
 	SNOWFLAKE = '#',
@@ -16,12 +17,10 @@ enum ObjectSymbol : char
 /// <summary>
 /// int to sum on movement direction
 /// </summary>
-enum MoveDirection : int
+enum class MoveDirection : int
 {
 	UP = 1,
-	DOWN = -1,
-	RIGHT = 1,
-	LEFT = -1
+	DOWN = -1
 };
 
 /// <summary>
@@ -30,9 +29,9 @@ enum MoveDirection : int
 class GameObject
 {
 public:
-	GameObject(char type, unsigned short height, unsigned short width)
+	GameObject(ObjectSymbol type, unsigned short height, unsigned short width)
 	{
-		_symbol = type;
+		_symbol = static_cast<char>(type);
 		this->height = height;
 		this->width = width;
 
@@ -46,7 +45,7 @@ public:
 		{
 			for (int i = 0; i < width; i++)
 			{
-				currPos[j][i] = 32;
+				currPos[j][i] = static_cast<char>(ObjectSymbol::EMPTY);
 			}
 		}
 	}
@@ -63,7 +62,9 @@ public:
 	void set_start_position(unsigned short x, unsigned short y);
 
 	void draw();
+	void move_lr(MoveDirection& direction);
 	virtual void onOverlap() { std::cout << "im gameobject\n"; };
+
 
 protected:
 	char** currPos = nullptr;
