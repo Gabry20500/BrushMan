@@ -88,4 +88,3 @@ public:
 	using GameObject::GameObject;
 	virtual void on_overlap() override { std::cout << "im powerup\n"; };
 };
-
