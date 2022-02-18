@@ -58,7 +58,6 @@ public:
 		}
 	}
 
-	//bool is_overlapping(GameObject go);
 	void set_start_position(unsigned short x, unsigned short y);
 
 	void draw();
