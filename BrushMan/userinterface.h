@@ -43,17 +43,18 @@ public:
 
 			std::cout << ">";
 			std::cin >> choice;
+			for (auto& c : choice) c = tolower(c);
 
-			if (choice == "play" || choice == "Play" || choice == "PLAY" || choice == "1")
+			if (choice == "play" || choice == "1")
 			{
 				//continue
 			}
-			else if (choice == "exit" || choice == "Exit" || choice == "EXIT" || choice == "2")
+			else if (choice == "exit" || choice == "2")
 			{
 				exit(0); //exit program
 			}
 
-		} while (choice != "play" || choice != "Play" || choice != "PLAY" || choice != "1" || choice != "exit" || choice != "Exit" || choice != "EXIT" || choice != "2");
+		} while (choice != "play" || choice != "1" || choice != "exit" || choice != "2");
 
 	}
 
