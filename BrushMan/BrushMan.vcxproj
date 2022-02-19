@@ -147,10 +147,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\gameloop\gameloop.h" />
     <ClInclude Include="src\gameobjects\gameobject.h" />
     <ClInclude Include="userinterface.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\gameloop\GameLoop.cpp" />
     <ClCompile Include="src\gameobjects\gameobject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
