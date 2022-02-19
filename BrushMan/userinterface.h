@@ -13,7 +13,7 @@ public:
 	/// <summary>
 	/// This is the game main menu, player can choose whether  to play or exit the game
 	/// </summary>
-	void mainmenu() {
+	bool mainmenu() {
 
 		SetConsoleTextAttribute(hconsole, 4); //Red text
 
@@ -47,11 +47,11 @@ public:
 
 			if (choice == "play" || choice == "1")
 			{
-				//continue
+				return true;
 			}
 			else if (choice == "exit" || choice == "2")
 			{
-				exit(0); //exit program
+				return false;
 			}
 
 		} while (choice != "play" || choice != "1" || choice != "exit" || choice != "2");
@@ -214,7 +214,6 @@ public:
 		(void)_getch();
 		std::cout << "\n";
 
-		mainmenu();
 	}
 
 
