@@ -148,10 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\gameloop\gameloop.h" />
-<<<<<<< Updated upstream
-=======
     <ClInclude Include="src\GameManager\GameManager.h" />
->>>>>>> Stashed changes
     <ClInclude Include="src\gameobjects\gameobject.h" />
     <ClInclude Include="src\map\Map.h" />
     <ClInclude Include="src\player\player.h" />
@@ -159,15 +156,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gameloop\GameLoop.cpp" />
-<<<<<<< Updated upstream
-    <ClCompile Include="src\gameobjects\gameobject.cpp" />
-=======
     <ClCompile Include="src\GameManager\GameManager.cpp" />
     <ClCompile Include="src\gameobjects\gameobject.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\map\Map.cpp" />
     <ClCompile Include="src\player\player.cpp" />
->>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

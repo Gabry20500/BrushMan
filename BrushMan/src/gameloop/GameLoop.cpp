@@ -3,7 +3,9 @@
 #include <windows.h>
 #include <time.h> 
 
+#include "../map/Map.h"
 #include "../player/player.h"
+
 #include "gameloop.h"
 #include "../map/Map.h"
 
@@ -21,7 +23,9 @@ void GameLoop()
 
 	Map map(10, 10);
 	Player player;
+	Map map(10,10);
 
+	map.Print();
 
 	while (true)
 	{
@@ -30,21 +34,22 @@ void GameLoop()
 
 		if (actualTime >= lastTime + 3 || first || _kbhit()) //If the enemy are ready to move or is the first loop or the player press a char
 		{
-			system("cls");
-			map.Print();
+
 			if (actualTime >= lastTime + 3 || first) //First and second case, here enemies will move
 			{
 				lastTime = actualTime;
 				first = false;
+				system("cls");
+				map.Print();
 			}
 
-			if (char input = _kbhit()) //input player found
+			if (_kbhit()) //input player found
 			{
-				input = tolower(_getch());
+				char input = tolower(_getch());
 				player.movement(map, input);
+				system("cls");
+				map.Print();
 			}
-
-			Sleep(1);
 		}
 	}
 }

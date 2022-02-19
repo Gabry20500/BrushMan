@@ -1,5 +1,4 @@
 #include "player.h"
-#include "../map/Map.h"
 
 #include <iostream>
 #include <conio.h>
@@ -108,7 +107,4 @@ void Player::movement(Map& mapRef, char input)
 	default:
 		finish = false;
 	}
-
-	system("cls");
-	mapRef.Print();
 }

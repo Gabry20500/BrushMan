@@ -99,24 +99,3 @@ void GameObject::move_ud(MoveDirection& direction)
 		break;
 	}
 }
-
-int main()
-{
-	Obstacle obs(ObjectSymbol::BOMB, 5, 5);
-	obs.set_start_position(2, 1);
-
-	int i = 0;
-
-	MoveDirection dir = MoveDirection::UP;
-
-	while (i != 20)
-	{
-		obs.move_lr(dir);
-		obs.draw();
-		i++;
-		system("pause");
-	}
-
-	return 0;
-
-}
