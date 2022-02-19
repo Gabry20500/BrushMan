@@ -148,11 +148,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\gameobjects\gameobject.h" />
-    <ClInclude Include="src\map\Map.h" />
+    <ClInclude Include="userinterface.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gameobjects\gameobject.cpp" />
-    <ClCompile Include="src\map\Map.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

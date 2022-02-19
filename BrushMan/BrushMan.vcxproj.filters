@@ -18,15 +18,12 @@
     <ClInclude Include="src\gameobjects\gameobject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\map\Map.h">
+    <ClInclude Include="userinterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gameobjects\gameobject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\map\Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
