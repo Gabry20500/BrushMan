@@ -11,6 +11,7 @@ void GameLoop()
 {
 	//Initializing first time loop bool
 	bool first = true;
+
 	//Inizializing time_t variable to store seconds between enemy movement
 	time_t lastTime;
 	time_t actualTime;
@@ -43,7 +44,6 @@ void GameLoop()
 
 			Sleep(100);
 			player.PrintMap();
-			
 		}
 	}
 }
