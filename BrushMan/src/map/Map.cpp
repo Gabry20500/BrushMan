@@ -42,6 +42,21 @@ char** Map::GetPlayerMap()
 	return playerMap;
 }
 
+void Map::SetPlayerMap(char** playerMap)
+{
+	this->playerMap = playerMap;
+}
+
+short Map::GetWidth()
+{
+	return this->width;
+}
+
+short Map::GetHeight()
+{
+	return this->height;
+}
+
 void Map::Init()
 {
 	if (levelMap != nullptr)

@@ -1,10 +1,13 @@
-#include "class/player.h"
+#include "src/map/Map.h"
+#include "src/player/player.h"
 
 int main()
 {
-	player ply;
+	Map mp(10,10);
+	Player ply;
 
-	ply.movement();
+	mp.Print();
+	ply.movement(mp);
 
 	return 0;
 }

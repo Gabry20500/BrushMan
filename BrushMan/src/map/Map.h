@@ -17,6 +17,10 @@ public:
 
 	void Print();
 	char** GetPlayerMap();
+	void SetPlayerMap(char** playerMap);
+
+	short GetWidth();
+	short GetHeight();
 
 private:
 	void Init();

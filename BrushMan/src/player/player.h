@@ -1,6 +1,7 @@
 #pragma once
+#include "../map/Map.h"
 
-class player {
+class Player {
 public:
-	void movement();
+	void movement(Map& mapRef);
 };

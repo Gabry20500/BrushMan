@@ -147,11 +147,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Class\player.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\gameobjects\gameobject.cpp" />
+    <ClCompile Include="src\map\Map.cpp" />
+    <ClCompile Include="src\player\player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class\player.h" />
+    <ClInclude Include="src\gameobjects\gameobject.h" />
+    <ClInclude Include="src\map\Map.h" />
+    <ClInclude Include="src\player\player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

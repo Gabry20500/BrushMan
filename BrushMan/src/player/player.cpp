@@ -1,79 +1,114 @@
 #include "player.h"
+#include "../map/Map.h"
 
 #include <iostream>
 #include <conio.h>
 
 
-void player::movement()
+void Player::movement(Map& mapRef)
 {
 	//Create multidimensional array
-	const int NumRow = 5;
-	const int NumColum = 5;
+	int NumRow = mapRef.GetHeight();
+	int NumColum = mapRef.GetWidth();
 
-	//Map design
-	char arr[NumRow][NumColum];
-	std::fill((char*)arr, (char*)arr + NumRow * NumColum, '.');
+	int row = 0;
+	int col = 0;
 
-	//Using @ for the player
-	int row = 0, col = 0;
-	arr[row][col] = '@';
+	char** mov = new char* [NumRow];
+	for (int i = 0; i < NumRow; i++) {
+		mov[i] = new char[NumColum];
+	}
 
-	//Movement algoritm
-	for (bool looping = true; looping;) {
-		for (int r = 0; r < NumRow; r++) {
-			std::cout << '\n';
-			for (int c = 0; c < NumColum; c++) {
-				std::cout << arr[r][c] << ' ';
-				std::cout << ' ';
+	mov = mapRef.GetPlayerMap();
+
+	for (int i = 0; i < NumColum; i++) {
+		for (int j = 0; j < NumRow; j++) {
+			if (mov[j][i] == '@') {
+				col = i;
+				row = j;
 			}
-		}
-		std::cout << '\n';
-
-		std::cout << "Use W for move Up\n";
-		std::cout << "Use S for move Down\n";
-		std::cout << "Use A for move Left\n";
-		std::cout << "Use D for move Right\n";
-
-		bool finish = true;
-		int newcol = col, newrow = row;
-
-		//Use _getch for manage the movement 
-		switch (_getch()) {
-		case 'w':
-			--newrow;
-			if (newrow == -1) {
-				newrow++;
-			}
-			break;
-		case 's':
-			++newrow;
-			if (newrow == 5) {
-				newrow--;
-			}
-			break;
-		case 'a':
-			--newcol;
-			if (newcol == -1) {
-				newcol++;
-			}
-			break;
-		case 'd':
-			++newcol;
-			if (newcol == 5) {
-				newcol--;
-			}
-			break;
-		default:
-			finish = false;
-		}
-
-		if (finish && looping) {
-			newrow = newrow < 0 ? newrow + NumRow : newrow % NumRow;
-			newcol = newcol < 0 ? newcol + NumColum : newcol % NumColum;
-			std::swap(arr[newrow][newcol], arr[row][col]);
-			row = newrow;
-			col = newcol;
-
 		}
 	}
+
+	//Movement algoritm
+	bool finish = true, quit = false;
+	int newcol = col, newrow = row;
+
+	//Use _getch for manage the movement 
+	switch (tolower(_getch())) {
+	case 'w':
+		for (int i = 0; i < NumRow && quit == false; i++)
+		{
+			for (int j = 0; j < NumColum && quit == false; j++)
+			{
+				if (i > 0)
+				{
+					if (mov[i][j] == '@')
+					{
+						mov[i][j] = '~';
+						mov[i - 1][j] = '@';
+						quit = true;
+					}
+				}
+			}
+		}
+		break;
+	case 's':
+		for (int i = 0; i < NumRow && quit == false; i++)
+		{
+			for (int j = 0; j < NumColum && quit == false; j++)
+			{
+				if (i < NumRow - 1)
+				{
+					if (mov[i][j] == '@' && quit == false)
+					{
+						mov[i][j] = '~';
+						mov[i + 1][j] = '@';
+						quit = true;
+					}
+				}
+			}
+		}
+		break;
+	case 'a':
+		for (int i = 0; i < NumRow && quit == false; i++)
+		{
+			for (int j = 0; j < NumColum && quit == false; j++)
+			{
+				if (j > 0)
+				{
+					if (mov[i][j] == '@' && quit == false)
+					{
+						mov[i][j] = '~';
+						mov[i][j - 1] = '@';
+						quit = true;
+					}
+				}
+			}
+		}
+		break;
+	case 'd':
+		for (int i = 0; i < NumRow && quit == false; i++)
+		{
+			for (int j = 0; j < NumColum && quit == false; j++)
+			{
+				if (j < NumColum - 1)
+				{
+					if (mov[i][j] == '@' && quit == false)
+					{
+						mov[i][j] = '~';
+						mov[i][j + 1] = '@';
+						quit = true;
+					}
+				}
+			}
+		}
+	break;
+
+	default:
+		finish = false;
+	}
+
+	system("cls");
+	mapRef.Print();
 }
