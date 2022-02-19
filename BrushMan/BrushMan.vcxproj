@@ -147,10 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\GameManager\GameManager.h" />
     <ClInclude Include="src\gameobjects\gameobject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameManager\GameManager.cpp" />
     <ClCompile Include="src\gameobjects\gameobject.cpp" />
+    <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

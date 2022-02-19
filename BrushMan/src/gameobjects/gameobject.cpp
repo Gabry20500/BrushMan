@@ -99,3 +99,4 @@ void GameObject::move_ud(MoveDirection& direction)
 		break;
 	}
 }
+
