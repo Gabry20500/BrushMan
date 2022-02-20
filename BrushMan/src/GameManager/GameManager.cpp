@@ -83,7 +83,7 @@ void GameManager::Run()
 			}
 			GameManager::ResetLevel();
 
-			UserInterface::endgamescreen;
+			//UserInterface::endgamescreen;
 
 			m_exit = GameManager::Menu();
 		}
@@ -93,7 +93,7 @@ void GameManager::Run()
 bool GameManager::Menu()
 {
 	bool Play;
-	Play = (UserInterface::mainmenu);
+	Play = false; //(UserInterface::mainmenu);
 	
 	if (Play)
 	{
@@ -111,34 +111,34 @@ void GameManager::ShowTutorial(int m_CurrentLevel)
 	{
 	case 1:
 
-		UserInterface::movementtutorial;
+		//UserInterface::movementtutorial;
 
 		break;
 	case 2:
 
-		UserInterface::bombtutorial;
+		//UserInterface::bombtutorial;
 
 		break;
 
 	case 3:
 
-		UserInterface::heartutorial;
+		//UserInterface::heartutorial;
 
 		break;
 
 	case 4:
 
-		UserInterface::snowflaketutorial;
+		//UserInterface::snowflaketutorial;
 
 		break;
 	case 5:
 
-		UserInterface::walltutorial;
+		//UserInterface::walltutorial;
 
 		break;
 	case 6:
 
-		UserInterface::finalleveladvise;
+		//UserInterface::finalleveladvise;
 
 		break;
 	}
