@@ -4,9 +4,10 @@
 #include <conio.h>
 #include <windows.h>
 
-HANDLE hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-class UserInterface {
+
+class UserInterface
+{
 
 public:
 
@@ -15,7 +16,7 @@ public:
 	/// </summary>
 	bool mainmenu() {
 
-		SetConsoleTextAttribute(hconsole, 4); //Red text
+		
 
 		std::cout << ":----------: \n";
 		std::cout << "|          | \n";
@@ -23,8 +24,6 @@ public:
 		std::cout << "|          | \n";
 		std::cout << ":----------: \n";
 		std::cout << "\n\n\n";
-
-		SetConsoleTextAttribute(hconsole, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE); //White text
 
 		std::cout << "BrushMan \n";
 		std::cout << "Copyright (c) 2021, 2022 GP1, Inc. All rights reserved. \n";
@@ -63,11 +62,7 @@ public:
 	/// </summary>
 	void movementtutorial() {
 
-		SetConsoleTextAttribute(hconsole, 4); //Red text
-
 		std::cout << "**********MOVEMENT TUTORIAL********** \n \n";
-
-		SetConsoleTextAttribute(hconsole, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE); //White text
 
 		std::cout << "In order to move the character around the map you have to use W, A, S, D. \n \n";
 
@@ -86,11 +81,7 @@ public:
 	/// </summary>
 	void bombtutorial() {
 
-		SetConsoleTextAttribute(hconsole, 4); //Red text
-
 		std::cout << "**********BOMB TUTORIAL********** \n \n";
-
-		SetConsoleTextAttribute(hconsole, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE); //White text
 
 		std::cout << "The bomb is an obstacle that you can find around the map and it's represented by the symbol 'O'. \n";
 		std::cout << "As the player pass through it, the player lose a life point. \n \n";
@@ -106,11 +97,7 @@ public:
 	/// </summary>
 	void heartutorial() {
 
-		SetConsoleTextAttribute(hconsole, 4); //Red text
-
 		std::cout << "**********HEART TUTORIAL********** \n \n";
-
-		SetConsoleTextAttribute(hconsole, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE); //White text
 
 		std::cout << "The heart is a powerup that you can find around the map and it's represented by the symbol '$'. \n";
 		std::cout << "As the player pass through it, it regens a life point. \n \n";
@@ -126,11 +113,7 @@ public:
 	/// </summary>
 	void snowflaketutorial() {
 
-		SetConsoleTextAttribute(hconsole, 4); //Red text
-
 		std::cout << "**********SNOWFLAKE TUTORIAL********** \n \n";
-
-		SetConsoleTextAttribute(hconsole, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE); //White text
 
 		std::cout << "The snowflake is an obstacle that you can find around the map and it's represented by the symbol '#'. \n";
 		std::cout << "As the player pass through it, it blocks player's inputs so as the player can't move. \n \n";
@@ -145,11 +128,7 @@ public:
 	/// </summary>
 	void walltutorial() {
 
-		SetConsoleTextAttribute(hconsole, 4); //Red text
-
 		std::cout << "**********WALL TUTORIAL********** \n \n";
-
-		SetConsoleTextAttribute(hconsole, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE); //White text
 
 		std::cout << "The wall is an obstacle that you can find around the map and it's represented by the symbol '/'. \n";
 		std::cout << "As the player pass through it, it moves the player back one cell based on his direction. \n \n";
@@ -164,11 +143,7 @@ public:
 	/// </summary>
 	void finalleveladvise() {
 
-		SetConsoleTextAttribute(hconsole, 4); //Red text
-
 		std::cout << "**********PAY ATTENTION PLEASE********** \n \n";
-
-		SetConsoleTextAttribute(hconsole, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE); //White text
 
 		std::cout << "You're now approaching the final level of BrushMan. \n";
 		std::cout << "Take a good amount of caffeine and keep your mind focused! \n";
@@ -185,11 +160,7 @@ public:
 	/// </summary>
 	void endgamescreen() {
 
-		SetConsoleTextAttribute(hconsole, 4); //Red text
-
 		std::cout << "**********CONGRATS********** \n \n";
-
-		SetConsoleTextAttribute(hconsole, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE); //White text
 
 		std::cout << "You've completed all the six levels of BrushMan. \n";
 		std::cout << "Are you terminator? \n";
@@ -215,6 +186,4 @@ public:
 		std::cout << "\n";
 
 	}
-
-
 };
