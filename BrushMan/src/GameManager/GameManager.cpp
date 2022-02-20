@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "../UserInterface/userinterface.h"
 #include <thread>
 #include <chrono>
 
@@ -32,7 +33,7 @@ void GameManager::Run()
 		{
 			while (m_CurrentLevel != (m_MaxLevel + 1))
 			{
-				//tutorialscreen(enumlevel)
+				GameManager::ShowTutorial(m_CurrentLevel);
 
 				while (!m_LevelCompleted)
 				{
@@ -40,47 +41,49 @@ void GameManager::Run()
 					{
 					case 1:
 
+						//m_LevelCompleted=funclevelloop
+
 						break;
 
 					case 2:
+
+						//m_LevelCompleted=funclevelloop
 
 						break;
 
 					case 3:
 
+						//m_LevelCompleted=funclevelloop
+
 						break;
 
 					case 4:
+
+						//m_LevelCompleted=funclevelloop
 
 						break;
 
 					case 5:
 
+						//m_LevelCompleted=funclevelloop
+
 						break;
 
 					case 6:
+
+						//m_LevelCompleted=funclevelloop
 
 						break;
 
 					default:
 						GameManager::LevelNotfound();
 					}
-
-					//Filippo's Function
-					//looplevel
-
-					//if(condition)
-					//{ 
-					//m_LevelCompleted=true;
-					//}
 				}
-
 				GameManager::NextLevel(1);
-
 			}
 			GameManager::ResetLevel();
 
-			//endgamescreen
+			UserInterface::endgamescreen;
 
 			m_exit = GameManager::Menu();
 		}
@@ -89,8 +92,56 @@ void GameManager::Run()
 
 bool GameManager::Menu()
 {
-	//Menùscreen
-	return false;
+	bool Play;
+	Play = (UserInterface::mainmenu);
+	
+	if (Play)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+void GameManager::ShowTutorial(int m_CurrentLevel)
+{
+	switch (m_CurrentLevel)
+	{
+	case 1:
+
+		UserInterface::movementtutorial;
+
+		break;
+	case 2:
+
+		UserInterface::bombtutorial;
+
+		break;
+
+	case 3:
+
+		UserInterface::heartutorial;
+
+		break;
+
+	case 4:
+
+		UserInterface::snowflaketutorial;
+
+		break;
+	case 5:
+
+		UserInterface::walltutorial;
+
+		break;
+	case 6:
+
+		UserInterface::finalleveladvise;
+
+		break;
+	}
 }
 
 

@@ -14,6 +14,7 @@ public:
 
 	void Run();
 	bool Menu();
+	void ShowTutorial(int m_CurrentLevel);
 	void NextLevel(int level);
 	void ResetLevel();
 	void LevelNotfound();
