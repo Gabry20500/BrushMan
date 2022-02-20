@@ -1,9 +1,10 @@
 #include "GameManager/GameManager.h"
-#include "gameloop/gameloop.h"
 
 
 int main()
 {
-	GameLoop(7,7,2);
+	GameManager game;
+	game.Run();
+
 	return 0;
 }

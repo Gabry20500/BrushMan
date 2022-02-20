@@ -20,18 +20,8 @@ void Player::movement(Map& mapRef, char input)
 
 	mov = mapRef.GetPlayerMap();
 
-	for (int i = 0; i < NumColum; i++) {
-		for (int j = 0; j < NumRow; j++) {
-			if (mov[j][i] == '@') {
-				col = i;
-				row = j;
-			}
-		}
-	}
-
 	//Movement algoritm
-	bool finish = true, quit = false;
-	int newcol = col, newrow = row;
+	bool quit = false;
 
 	//Use _getch for manage the movement 
 	switch (input) {
@@ -103,8 +93,5 @@ void Player::movement(Map& mapRef, char input)
 			}
 		}
 	break;
-
-	default:
-		finish = false;
 	}
 }

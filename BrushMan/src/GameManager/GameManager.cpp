@@ -1,9 +1,12 @@
 #include "GameManager.h"
+#include <iostream>
+#include "../map/Map.h"
 #include <thread>
 #include <chrono>
 
 #include "../gameloop/gameloop.h"
 
+using namespace std;
 
 //Creation of a Default new game
 GameManager::GameManager()
@@ -47,15 +50,11 @@ void GameManager::Run()
 					switch (m_CurrentLevel)
 					{
 					case 1:
-						
-						GameLoop(5,5, m_CurrentLevel);
-
+						GameLoop(5, 5, m_CurrentLevel);
 						break;
 
 					case 2:
-
 						GameLoop(7, 7, m_CurrentLevel);
-
 						break;
 
 					case 3:

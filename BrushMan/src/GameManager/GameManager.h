@@ -1,9 +1,9 @@
 #pragma once
-#include <iostream>
-#include  "../UserInterface/userinterface.h"
-#include "../map/Map.h"
 
-using namespace std;
+#include  "../UserInterface/userinterface.h"
+
+
+
 
 class GameManager
 {

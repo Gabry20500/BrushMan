@@ -38,4 +38,4 @@ private:
 	void Init();
 };
 
-#endif // !MAP_H
+#endif !MAP_H

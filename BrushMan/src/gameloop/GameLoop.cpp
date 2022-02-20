@@ -24,40 +24,63 @@ void GameLoop(short width, short height, short level)
 	Map map(width, height);
 	Player player;
 
+	map.Print();
 	switch (level)
 	{
 	case 1:
-		break;
-	case 2:
-		Obstacle Bomb(ObjectSymbol::BOMB, map, 3, 3);
-		break;
-	}
-
-	map.Print();
-
-	while (true)
-	{
-		char c = 'n';
-		time(&actualTime);
-
-		if (actualTime >= lastTime + 3 || first || _kbhit()) //If the enemy are ready to move or is the first loop or the player press a char
+		while (true)
 		{
+			char c = 'n';
+			time(&actualTime);
 
-			if (actualTime >= lastTime + 3 || first) //First and second case, here enemies will move
+			if (actualTime >= lastTime + 3 || first || _kbhit()) //If the enemy are ready to move or is the first loop or the player press a char
 			{
-				lastTime = actualTime;
-				first = false;
-				system("cls");
-				map.Print();
-			}
+				if (actualTime >= lastTime + 3 || first) //First and second case, here enemies will move
+				{
+					lastTime = actualTime;
+					first = false;
+					system("cls");
+					map.Print();
+				}
 
-			if (_kbhit()) //input player found
-			{
-				char input = tolower(_getch());
-				player.movement(map, input);
-				system("cls");
-				map.Print();
+				if (_kbhit()) //input player found
+				{
+					char input = tolower(_getch());
+					player.movement(map, input);
+					system("cls");
+					map.Print();
+				}
 			}
 		}
+		break;
+	case 2:
+		Obstacle bomb(ObjectSymbol::BOMB,3,3);
+		MoveDirection dir = MoveDirection::UP;
+		while (true)
+		{
+			char c = 'n';
+			time(&actualTime);
+
+			if (actualTime >= lastTime + 3 || first || _kbhit()) //If the enemy are ready to move or is the first loop or the player press a char
+			{
+				if (actualTime >= lastTime + 3 || first) //First and second case, here enemies will move
+				{
+					bomb.move_lr(dir, map);
+					lastTime = actualTime;
+					first = false;
+					system("cls");
+					map.Print();
+				}
+
+				if (_kbhit()) //input player found
+				{
+					char input = tolower(_getch());
+					player.movement(map, input);
+					system("cls");
+					map.Print();
+				}
+			}
+		}
+		break;
 	}
 }
