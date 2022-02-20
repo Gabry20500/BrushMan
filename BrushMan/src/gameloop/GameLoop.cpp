@@ -23,7 +23,6 @@ void GameLoop()
 
 	Map map(10, 10);
 	Player player;
-	Map map(10,10);
 
 	map.Print();
 
