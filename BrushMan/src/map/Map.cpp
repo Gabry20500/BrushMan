@@ -17,7 +17,7 @@ void Map::Print()
 		std::cout << " ";
 		for (int j = 0; j < width; j++)
 		{
-			if (playerMap[i][j] != '@')
+			if (playerMap[i][j] != '@' && playerMap[i][j] != '~')
 			{
 				std::cout << levelMap[i][j];
 			}
@@ -42,11 +42,6 @@ char** Map::GetPlayerMap()
 	return playerMap;
 }
 
-void Map::SetPlayerMap(char** playerMap)
-{
-	this->playerMap = playerMap;
-}
-
 short Map::GetWidth()
 {
 	return this->width;
@@ -55,6 +50,11 @@ short Map::GetWidth()
 short Map::GetHeight()
 {
 	return this->height;
+}
+
+void Map::SetPlayerMap(char** playerMap)
+{
+	this->playerMap = playerMap;
 }
 
 void Map::Init()
@@ -70,5 +70,23 @@ void Map::Init()
 		playerMap[i] = new char[height];
 	}
 
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++) {
+			levelMap[i][j] = ' ';
+			playerMap[i][j] = ' ';
+		}
+	}
+
 	playerMap[height-1][0] = '@';
+}
+
+Map::~Map()
+{
+	for (int i = 0; i < width; ++i) {
+		delete[] levelMap[i];
+		delete[] playerMap[i];
+	}
+	delete[] levelMap;
+	delete[] playerMap;
 }

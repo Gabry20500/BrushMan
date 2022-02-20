@@ -15,14 +15,22 @@ public:
 	// Map constructor
 	Map(short width, short height);
 
+	// Current level map print method
 	void Print();
-	char** GetPlayerMap();
-	void SetPlayerMap(char** playerMap);
 
+	// Map getters
+	char** GetPlayerMap();
 	short GetWidth();
 	short GetHeight();
 
+	// Player map setter
+	void SetPlayerMap(char** playerMap);
+
+	// Maps destructor
+	~Map();
+
 private:
+	// Maps initialization
 	void Init();
 };
 
