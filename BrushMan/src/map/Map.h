@@ -16,13 +16,21 @@ public:
 	// Map constructor
 	Map(short width, short height);
 
+	// Current level map print method
 	void Print();
-	char** GetPlayerMap();
-	void SetPlayerMap(char** playerMap);
-	unsigned short CalculatePercent();
 
+	// Get current player map
+	char** GetPlayerMap();
 	short GetWidth();
 	short GetHeight();
+
+	// Player map setter
+	void SetPlayerMap(char** playerMap);
+
+	// Calculate colored percentage
+	unsigned short CalculatePercent();
+
+	~Map();
 
 private:
 	void Init();
