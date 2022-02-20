@@ -29,7 +29,7 @@ void GameLoop(short width, short height, short level)
 	case 1:
 		break;
 	case 2:
-		Obstacle Bomb(ObjectSymbol::BOMB, 7, 7);
+		Obstacle Bomb(ObjectSymbol::BOMB, map, 3, 3);
 		break;
 	}
 

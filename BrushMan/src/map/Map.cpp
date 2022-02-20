@@ -54,6 +54,15 @@ char** Map::GetPlayerMap()
 	return playerMap;
 }
 
+/// <summary>
+/// Get current level map
+/// </summary>
+/// <returns>saved levelMap</returns>
+char** Map::GetLevelMap()
+{
+	return levelMap;
+}
+
 short Map::GetWidth()
 {
 	return this->width;

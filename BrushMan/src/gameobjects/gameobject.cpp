@@ -10,28 +10,17 @@
 //	return (this->currPos[yPos][xPos] == go.currPos[go.yPos][go.xPos]);
 //}
 
-/// <summary>
-/// set X and Y coordinates and change the value in the currPos array
-/// </summary>
-/// <param name="x"></param>
-/// <param name="y"></param>
-void GameObject::set_start_position(unsigned short x, unsigned short y)
-{
-	xPos = x;
-	yPos = y;
-	
-	currPos[yPos][xPos] = _symbol;
-}
+
 
 /// <summary>
 /// Draw the gameobject position on screen
 /// </summary>
 void GameObject::draw()
 {
-	for (int j = 0; j < height; j++)
+	for (int j = 0; j < y; j++)
 	{
 		std::cout << "\n";
-		for (int i = 0; i < width; i++)
+		for (int i = 0; i < x; i++)
 		{
 			std::cout << "|" << currPos[j][i] << "|";
 		}
@@ -47,7 +36,7 @@ void GameObject::move_lr(MoveDirection& direction)
 	switch (direction)
 	{
 	case MoveDirection::UP:
-		if (xPos < width - 1)
+		if (xPos < x - 1)
 		{
 			currPos[yPos][xPos] = static_cast<char>(ObjectSymbol::EMPTY);
 			xPos += static_cast<int>(direction);
@@ -78,7 +67,7 @@ void GameObject::move_ud(MoveDirection& direction)
 	switch (direction)
 	{
 	case MoveDirection::UP:
-		if (yPos < width - 1)
+		if (yPos < x - 1)
 		{
 			currPos[yPos][xPos] = static_cast<char>(ObjectSymbol::EMPTY);
 			yPos += static_cast<int>(direction);

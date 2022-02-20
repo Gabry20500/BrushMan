@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../map/Map.h"
 
 /// <summary>
 /// Gameobject's symbol on screen
@@ -10,8 +11,7 @@ enum class ObjectSymbol : char
 	WALL = '/',
 	SNOWFLAKE = '#',
 	BOMB = 'O',
-	HEARTH = '$',
-	PLAYER = '@'
+	HEARTH = '$'
 };
 
 /// <summary>
@@ -29,36 +29,29 @@ enum class MoveDirection : int
 class GameObject
 {
 public:
-	GameObject(ObjectSymbol type, unsigned short height, unsigned short width)
+	GameObject(ObjectSymbol type, Map& level, unsigned short y, unsigned short x)
 	{
 		_symbol = static_cast<char>(type);
-		this->height = height;
-		this->width = width;
+		this->y = y;
+		this->x = x;
 
-		currPos = new char* [height];
-		for (short i = 0; i < height; i++)
-		{
-			currPos[i] = new char[width];
-		}
 
-		for (int j = 0; j < height; j++)
+		for (int j = 0; j < y; j++)
 		{
-			for (int i = 0; i < width; i++)
+			for (int i = 0; i < x; i++)
 			{
-				currPos[j][i] = static_cast<char>(ObjectSymbol::EMPTY);
+				level.GetLevelMap()[j][i] = static_cast<char>(ObjectSymbol::EMPTY);
 			}
 		}
 	}
 
 	~GameObject()
 	{
-		for (short i = 0; i < height; i++)
+		for (short i = 0; i < y; i++)
 		{
 			delete[] currPos[i];
 		}
 	}
-
-	void set_start_position(unsigned short x, unsigned short y);
 
 	void draw();
 	void move_lr(MoveDirection& direction);
@@ -68,10 +61,10 @@ public:
 
 protected:
 	char** currPos = nullptr;
-	unsigned short height = 0, width = 0, xPos = 0, yPos = 0;;
+	unsigned short y = 0, x = 0, xPos = 0, yPos = 0;;
 	char _symbol;
 
-	unsigned short get_area() { return height * width; }
+	unsigned short get_area() { return y * x; }
 };
 
 class Obstacle : public GameObject

@@ -21,6 +21,8 @@ public:
 
 	// Get current player map
 	char** GetPlayerMap();
+	// Get current level map
+	char** GetLevelMap();
 	short GetWidth();
 	short GetHeight();
 
