@@ -1,10 +1,5 @@
 #include "Map.h"
 
-/// <summary>
-/// Map constructor
-/// </summary>
-/// <param name="width">level width</param>
-/// <param name="height">level height</param>
 Map::Map(short width, short height)
 {
 	this->width = width;
@@ -15,9 +10,6 @@ Map::Map(short width, short height)
 	Init();
 }
 
-/// <summary>
-/// Current level map print method
-/// </summary>
 void Map::Print()
 {
 	for (int i = 0; i < height; i++)
@@ -45,13 +37,30 @@ void Map::Print()
 	}
 }
 
-/// <summary>
-/// Get current player map
-/// </summary>
-/// <returns>saved playerMap</returns>
 char** Map::GetPlayerMap()
 {
 	return playerMap;
+}
+
+void Map::SetPlayerMap(char** playerMap)
+{
+	this->playerMap = playerMap;
+}
+
+unsigned short Map::CalculatePercent()
+{
+	int c = 0;
+
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++) {
+			if (playerMap[i][j] == '~') c++;
+		}
+	}
+
+	PlayerPercent = 100 * (c / 50);
+
+	return PlayerPercent;
 }
 
 short Map::GetWidth()
@@ -64,18 +73,6 @@ short Map::GetHeight()
 	return this->height;
 }
 
-/// <summary>
-/// Player map setter
-/// </summary>
-/// <param name="playerMap">new playerMap</param>
-void Map::SetPlayerMap(char** playerMap)
-{
-	this->playerMap = playerMap;
-}
-
-/// <summary>
-/// Maps initialization
-/// </summary>
 void Map::Init()
 {
 	if (levelMap != nullptr)
@@ -98,17 +95,4 @@ void Map::Init()
 	}
 
 	playerMap[height-1][0] = '@';
-}
-
-/// <summary>
-/// Maps destructor
-/// </summary>
-Map::~Map()
-{
-	for (int i = 0; i < width; ++i) {
-		delete[] levelMap[i];
-		delete[] playerMap[i];
-	}
-	delete[] levelMap;
-	delete[] playerMap;
 }

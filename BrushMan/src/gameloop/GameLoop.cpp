@@ -2,15 +2,15 @@
 #include <conio.h>
 #include <windows.h>
 #include <time.h> 
+#include "gameloop.h"
+
 
 #include "../map/Map.h"
 #include "../player/player.h"
-
-#include "gameloop.h"
-#include "../map/Map.h"
+#include "../gameobjects/gameobject.h"
 
 
-void GameLoop()
+void GameLoop(short width, short height, short level)
 {
 	//Initializing first time loop bool
 	bool first = true;
@@ -21,8 +21,17 @@ void GameLoop()
 	time(&actualTime); //Getting actual time and inserting it in actualTime
 	lastTime = actualTime; //Setting the moment of the last movement
 
-	Map map(10, 10);
+	Map map(width, height);
 	Player player;
+
+	switch (level)
+	{
+	case 1:
+		break;
+	case 2:
+		Obstacle Bomb(ObjectSymbol::BOMB, 7, 7);
+		break;
+	}
 
 	map.Print();
 

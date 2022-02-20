@@ -4,6 +4,6 @@
 
 int main()
 {
-	GameLoop();
+	GameLoop(7,7,2);
 	return 0;
 }

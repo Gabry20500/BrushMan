@@ -2,6 +2,9 @@
 #include <thread>
 #include <chrono>
 
+#include "../gameloop/gameloop.h"
+
+
 //Creation of a Default new game
 GameManager::GameManager()
 {
@@ -40,21 +43,18 @@ void GameManager::Run()
 				//Every Level need a tutorial that explains new feature in each level
 				GameManager::ShowTutorial(m_CurrentLevel);
 
-				//Until the level isn't completed, redo that level
-				while (!m_LevelCompleted)
-				{
 					//Choose the level and apply that specified things
 					switch (m_CurrentLevel)
 					{
 					case 1:
-
-						//m_LevelCompleted=funclevelloop
+						
+						GameLoop(5,5, m_CurrentLevel);
 
 						break;
 
 					case 2:
 
-						//m_LevelCompleted=funclevelloop
+						GameLoop(7, 7, m_CurrentLevel);
 
 						break;
 
@@ -85,10 +85,17 @@ void GameManager::Run()
 					default:
 						GameManager::LevelNotfound();
 					}
-				}
+				
 
-				//Everytime a level is completed go to the next(s)
-				GameManager::NextLevel(1);
+				//If the player wins the level go next
+					if (m_LevelCompleted) {
+						//Everytime a level is completed go to the next(s)
+						GameManager::NextLevel(1);
+					}
+					else {
+						//If the player loses restart from level 1
+						m_CurrentLevel = 1;
+					}
 			}
 
 			//The next current level become the first one playable
@@ -174,9 +181,4 @@ void GameManager::LevelNotfound()
 	std::cout << m_CurrentLevel;
 	std::cout << "not found";
 	std::this_thread::sleep_for(3s);
-}
-
-int GameManager::GetCurrentLevel()
-{
-	return m_CurrentLevel;
 }

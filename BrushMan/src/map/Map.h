@@ -10,27 +10,21 @@ private:
 	short height;
 	char** levelMap;
 	char** playerMap;
+	unsigned short PlayerPercent;
 
 public:
 	// Map constructor
 	Map(short width, short height);
 
-	// Current level map print method
 	void Print();
-
-	// Map getters
 	char** GetPlayerMap();
+	void SetPlayerMap(char** playerMap);
+	unsigned short CalculatePercent();
+
 	short GetWidth();
 	short GetHeight();
 
-	// Player map setter
-	void SetPlayerMap(char** playerMap);
-
-	// Maps destructor
-	~Map();
-
 private:
-	// Maps initialization
 	void Init();
 };
 

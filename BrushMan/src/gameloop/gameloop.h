@@ -1,2 +1,2 @@
 #pragma once
-void GameLoop();
+void GameLoop(short width, short height, short level);

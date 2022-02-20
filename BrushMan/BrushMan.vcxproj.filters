@@ -30,6 +30,9 @@
     <ClInclude Include="src\player\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="userinterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\UserInterface\userinterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>

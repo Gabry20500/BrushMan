@@ -153,6 +153,7 @@
     <ClInclude Include="src\map\Map.h" />
     <ClInclude Include="src\player\player.h" />
     <ClInclude Include="src\UserInterface\userinterface.h" />
+    <ClInclude Include="userinterface.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gameloop\GameLoop.cpp" />

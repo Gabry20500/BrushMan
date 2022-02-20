@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include  "../UserInterface/userinterface.h"
+#include "../map/Map.h"
 
 using namespace std;
 
@@ -8,6 +9,7 @@ class GameManager
 {
 
 public:
+	
 
 	//Creation of a Default new game
 	GameManager();
@@ -32,12 +34,10 @@ public:
 
 
 	void LevelNotfound();
-
-	int GetCurrentLevel();
-
+protected:
+	int m_CurrentLevel;
 private:
 	int m_MaxLevel;
-	int m_CurrentLevel;
 	int m_FirstPlayableLevel;
 	bool m_LevelCompleted;
 	bool m_exit;
