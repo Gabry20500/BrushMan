@@ -77,6 +77,7 @@ protected:
 	char** currPos = nullptr;
 	unsigned short height = 0, width = 0, xPos = 0, yPos = 0;;
 	char symbol;
+	bool first = true;
 
 	unsigned short get_area() { return height * width; }
 };
@@ -93,4 +94,5 @@ class PowerUp : public GameObject
 public:
 	using GameObject::GameObject;
 	virtual char on_overlap() override { std::cout << "im powerup\n"; return symbol; };
+	void spawnHeart(Map& map);
 };

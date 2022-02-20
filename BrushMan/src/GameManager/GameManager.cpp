@@ -58,27 +58,19 @@ void GameManager::Run()
 						break;
 
 					case 3:
-
-						//m_LevelCompleted=funclevelloop
-
+						GameLoop(7, 7, m_CurrentLevel);
 						break;
 
 					case 4:
-
-						//m_LevelCompleted=funclevelloop
-
+						GameLoop(7, 7, m_CurrentLevel);
 						break;
 
 					case 5:
-
-						//m_LevelCompleted=funclevelloop
-
+						GameLoop(7, 7, m_CurrentLevel);
 						break;
 
 					case 6:
-
-						//m_LevelCompleted=funclevelloop
-
+						GameLoop(7, 7, m_CurrentLevel);
 						break;
 
 					default:

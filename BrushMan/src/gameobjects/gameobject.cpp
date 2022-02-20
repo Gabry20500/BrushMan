@@ -51,22 +51,52 @@ void GameObject::move_lr(MoveDirection& direction, Map& levelMap)
 	switch (direction)
 	{
 	case MoveDirection::UP:
-		if (width < NumColum - 1)
+		if (first)
 		{
-			enemyMap[height][width] = static_cast<char>(ObjectSymbol::EMPTY);
-			width += static_cast<int>(direction);
-			enemyMap[height][width] = symbol;
+			first = false;
 		}
-		else direction = MoveDirection::DOWN;
+		else 
+		{
+			if (width < NumColum - 1)
+			{
+				enemyMap[height][width] = static_cast<char>(ObjectSymbol::EMPTY);
+				if (enemyMap[height][width + 1] == ' ')
+				{
+					width += static_cast<int>(direction);
+					enemyMap[height][width] = symbol;
+				}
+				else
+				{
+					width += static_cast<int>(direction);
+					enemyMap[height][width] = symbol;
+				}
+			}
+			else direction = MoveDirection::DOWN;
+		}
 		break;
 	case MoveDirection::DOWN:
-		if (width > 0)
+		if (first)
 		{
-			enemyMap[height][width] = static_cast<char>(ObjectSymbol::EMPTY);
-			width += static_cast<int>(direction);
-			enemyMap[height][width] = symbol;
+			first = false;
 		}
-		else direction = MoveDirection::UP;
+		else
+		{
+			if (width > 0)
+			{
+				enemyMap[height][width] = static_cast<char>(ObjectSymbol::EMPTY);
+				if (enemyMap[height][width - 1] == ' ')
+				{
+					width += static_cast<int>(direction);
+					enemyMap[height][width] = symbol;
+				}
+				else
+				{
+					width += static_cast<int>(direction);
+					enemyMap[height][width] = symbol;
+				}
+			}
+			else direction = MoveDirection::UP;
+		}
 		break;
 	default:
 		break;
@@ -97,22 +127,52 @@ void GameObject::move_ud(MoveDirection& direction, Map& levelMap)
 	switch (direction)
 	{
 	case MoveDirection::UP:
-		if (height < NumRow - 1)
+		if (first)
 		{
-			enemyMap[height][width] = static_cast<char>(ObjectSymbol::EMPTY);
-			height += static_cast<int>(direction);
-			enemyMap[height][width] = symbol;
+			first = false;
 		}
-		else direction = MoveDirection::DOWN;
+		else
+		{
+			if (height < NumRow - 1)
+			{
+				enemyMap[height][width] = static_cast<char>(ObjectSymbol::EMPTY);
+				if (enemyMap[height + 1][width] == ' ')
+				{
+					height += static_cast<int>(direction);
+					enemyMap[height][width] = symbol;
+				}
+				else
+				{
+					height += static_cast<int>(direction);
+					enemyMap[height][width] = symbol;
+				}
+			}
+			else direction = MoveDirection::DOWN;
+		}
 		break;
 	case MoveDirection::DOWN:
-		if (height > 0)
+		if (first)
 		{
-			enemyMap[height][width] = static_cast<char>(ObjectSymbol::EMPTY);
-			height += static_cast<int>(direction);
-			enemyMap[height][width] = symbol;
+			first = false;
 		}
-		else direction = MoveDirection::UP;
+		else
+		{
+			if (height > 0)
+			{
+				enemyMap[height][width] = static_cast<char>(ObjectSymbol::EMPTY);
+				if (enemyMap[height - 1][width] == ' ')
+				{
+					height += static_cast<int>(direction);
+					enemyMap[height][width] = symbol;
+				}
+				else
+				{
+					height += static_cast<int>(direction);
+					enemyMap[height][width] = symbol;
+				}
+			}
+			else direction = MoveDirection::UP;
+		}
 		break;
 	default:
 		break;
@@ -131,4 +191,22 @@ void GameObject::set_start_position(unsigned short x, unsigned short y)
 	yPos = y;
 
 	currPos[yPos][xPos] = symbol;
+}
+
+void PowerUp::spawnHeart(Map& levelMap)
+{
+	//Create multidimensional array
+	int NumRow = levelMap.GetHeight();
+	int NumColum = levelMap.GetWidth();
+	//Movement algoritm
+	bool quit = false;
+
+	char** enemyMap = new char* [NumRow];
+	for (int i = 0; i < NumRow; i++) {
+		enemyMap[i] = new char[NumColum];
+	}
+
+	enemyMap = levelMap.GetLevelMap();
+
+	enemyMap[height][width] = symbol;
 }
