@@ -3,8 +3,11 @@
 #include <windows.h>
 #include <time.h> 
 
-#include "player.h"
+#include "../map/Map.h"
+#include "../player/player.h"
+
 #include "gameloop.h"
+#include "../map/Map.h"
 
 
 void GameLoop()
@@ -18,9 +21,10 @@ void GameLoop()
 	time(&actualTime); //Getting actual time and inserting it in actualTime
 	lastTime = actualTime; //Setting the moment of the last movement
 
-
+	Map map(10, 10);
 	Player player;
 
+	map.Print();
 
 	while (true)
 	{
@@ -29,21 +33,22 @@ void GameLoop()
 
 		if (actualTime >= lastTime + 3 || first || _kbhit()) //If the enemy are ready to move or is the first loop or the player press a char
 		{
-			system("cls");
+
 			if (actualTime >= lastTime + 3 || first) //First and second case, here enemies will move
 			{
 				lastTime = actualTime;
 				first = false;
+				system("cls");
+				map.Print();
 			}
 
-			if (char command = _kbhit()) //input player found
+			if (_kbhit()) //input player found
 			{
-				command = _getch();
-				player.Movement(command);
+				char input = tolower(_getch());
+				player.movement(map, input);
+				system("cls");
+				map.Print();
 			}
-
-			Sleep(100);
-			player.PrintMap();
 		}
 	}
 }

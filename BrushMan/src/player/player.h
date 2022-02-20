@@ -3,5 +3,5 @@
 
 class Player {
 public:
-	void movement(Map& mapRef);
+	void movement(Map& mapRef, char input);
 };

@@ -152,10 +152,9 @@
     <ClInclude Include="src\gameobjects\gameobject.h" />
     <ClInclude Include="src\map\Map.h" />
     <ClInclude Include="src\player\player.h" />
-    <ClInclude Include="src\UserInterface\userinterface.h" />
+    <ClInclude Include="userinterface.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="src\gameloop\GameLoop.cpp" />
     <ClCompile Include="src\GameManager\GameManager.cpp" />
     <ClCompile Include="src\gameobjects\gameobject.cpp" />

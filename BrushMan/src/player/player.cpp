@@ -1,11 +1,10 @@
 #include "player.h"
-#include "../map/Map.h"
 
 #include <iostream>
 #include <conio.h>
 
 
-void Player::movement(Map& mapRef)
+void Player::movement(Map& mapRef, char input)
 {
 	//Create multidimensional array
 	int NumRow = mapRef.GetHeight();
@@ -35,7 +34,7 @@ void Player::movement(Map& mapRef)
 	int newcol = col, newrow = row;
 
 	//Use _getch for manage the movement 
-	switch (tolower(_getch())) {
+	switch (input) {
 	case 'w':
 		for (int i = 0; i < NumRow && quit == false; i++)
 		{
@@ -108,7 +107,4 @@ void Player::movement(Map& mapRef)
 	default:
 		finish = false;
 	}
-
-	system("cls");
-	mapRef.Print();
 }
