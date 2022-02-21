@@ -10,7 +10,7 @@ private:
 	short height;
 	char** levelMap;
 	char** playerMap;
-	unsigned short PlayerPercent;
+	float PlayerPercent = 0.0f;
 
 public:
 	// Map constructor
@@ -30,7 +30,7 @@ public:
 	void SetPlayerMap(char** playerMap);
 
 	// Calculate colored percentage
-	unsigned short CalculatePercent();
+	void CalculatePercent(float& percent);
 
 	~Map();
 

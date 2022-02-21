@@ -10,7 +10,7 @@
 #include "../gameobjects/gameobject.h"
 
 
-void GameLoop(short width, short height, short level)
+bool GameLoop(short width, short height, short level)
 {
 	//Initializing first time loop bool
 	bool first = true;
@@ -23,6 +23,8 @@ void GameLoop(short width, short height, short level)
 
 	Map map(width, height);
 	Player player;
+
+	float perc = 0.0f;
 
 	//List of all entities in all levels
 	Obstacle bomb1(ObjectSymbol::BOMB, 3, 3);
@@ -72,6 +74,12 @@ void GameLoop(short width, short height, short level)
 					player.movement(map, input);
 					system("cls");
 					map.Print();
+					map.CalculatePercent(perc);
+
+					std::cout << perc << std::endl;
+					if (perc >= 0.98f) {
+						return true;
+					}
 				}
 			}
 		}
@@ -99,6 +107,12 @@ void GameLoop(short width, short height, short level)
 					player.movement(map, input);
 					system("cls");
 					map.Print();
+					map.CalculatePercent(perc);
+
+					std::cout << perc << std::endl;
+					if (perc >= 0.98f) {
+						return true;
+					}
 				}
 			}
 		}
@@ -127,6 +141,12 @@ void GameLoop(short width, short height, short level)
 					player.movement(map, input);
 					system("cls");
 					map.Print();
+					map.CalculatePercent(perc);
+
+					std::cout << perc << std::endl;
+					if (perc >= 0.98f) {
+						return true;
+					}
 				}
 			}
 		}
@@ -159,6 +179,12 @@ void GameLoop(short width, short height, short level)
 					player.movement(map, input);
 					system("cls");
 					map.Print();
+					map.CalculatePercent(perc);
+
+					std::cout << perc << std::endl;
+					if (perc >= 0.78f) {
+						return true;
+					}
 				}
 			}
 		}
@@ -192,6 +218,12 @@ void GameLoop(short width, short height, short level)
 					player.movement(map, input);
 					system("cls");
 					map.Print();
+					map.CalculatePercent(perc);
+
+					std::cout << perc << std::endl;
+					if (perc >= 0.78f) {
+						return true;
+					}
 				}
 			}
 		}
@@ -227,6 +259,12 @@ void GameLoop(short width, short height, short level)
 					player.movement(map, input);
 					system("cls");
 					map.Print();
+					map.CalculatePercent(perc);
+
+					std::cout << perc << std::endl;
+					if (perc >= 0.88f) {
+						return true;
+					}
 				}
 			}
 		}

@@ -50,27 +50,28 @@ void GameManager::Run()
 					switch (m_CurrentLevel)
 					{
 					case 1:
-						GameLoop(5, 5, m_CurrentLevel);
+
+						m_LevelCompleted = GameLoop(5, 5, m_CurrentLevel);
 						break;
 
 					case 2:
-						GameLoop(7, 7, m_CurrentLevel);
+						m_LevelCompleted =  GameLoop(7, 7, m_CurrentLevel);
 						break;
 
 					case 3:
-						GameLoop(7, 7, m_CurrentLevel);
+						m_LevelCompleted =  GameLoop(7, 7, m_CurrentLevel);
 						break;
 
 					case 4:
-						GameLoop(7, 7, m_CurrentLevel);
+						m_LevelCompleted =  GameLoop(7, 7, m_CurrentLevel);
 						break;
 
 					case 5:
-						GameLoop(7, 7, m_CurrentLevel);
+						m_LevelCompleted = GameLoop(7, 7, m_CurrentLevel);
 						break;
 
 					case 6:
-						GameLoop(7, 7, m_CurrentLevel);
+						m_LevelCompleted = GameLoop(7, 7, m_CurrentLevel);
 						break;
 
 					default:

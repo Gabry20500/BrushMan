@@ -86,20 +86,20 @@ void Map::SetPlayerMap(char** playerMap)
 /// Calculate colored percentage
 /// </summary>
 /// <returns>percentage</returns>
-unsigned short Map::CalculatePercent()
+void Map::CalculatePercent(float& percent)
 {
-	int c = 0;
 
 	for (int i = 0; i < width; i++)
 	{
 		for (int j = 0; j < height; j++) {
-			if (playerMap[i][j] == '~') c++;
+			if (playerMap[i][j] == '~') {
+				percent++;
+			}
 		}
 	}
 
-	PlayerPercent = 100 * (c / 50);
-
-	return PlayerPercent;
+	float z = width * height;
+	percent = (percent / z);
 }
 
 /// <summary>
