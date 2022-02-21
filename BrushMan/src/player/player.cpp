@@ -3,15 +3,11 @@
 #include <iostream>
 #include <conio.h>
 
-
 void Player::movement(Map& mapRef, char input)
 {
 	//Create multidimensional array
 	int NumRow = mapRef.GetHeight();
 	int NumColum = mapRef.GetWidth();
-
-	int row = 0;
-	int col = 0;
 
 	char** mov = new char* [NumRow];
 	for (int i = 0; i < NumRow; i++) {
@@ -95,3 +91,28 @@ void Player::movement(Map& mapRef, char input)
 	break;
 	}
 }
+
+char** Player::getPlayerPosition(Map& mapRef)
+{
+	int NumRow = mapRef.GetHeight();
+	int NumColum = mapRef.GetWidth();
+
+	char** pos = new char* [NumRow];
+	for (int i = 0; i < NumRow; i++) {
+		pos[i] = new char[NumColum];
+	}
+
+	if (mapRef.GetPlayerMap()[mapRef.GetHeight()][mapRef.GetWidth()] == '@')
+		**pos = mapRef.GetPlayerMap()[mapRef.GetHeight()][mapRef.GetWidth()];
+		
+	return pos;
+}
+
+
+unsigned short Player::getHealth()
+{
+	return health;
+}
+
+
+

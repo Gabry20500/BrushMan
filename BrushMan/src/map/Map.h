@@ -32,6 +32,7 @@ public:
 	// Calculate colored percentage
 	void CalculatePercent(float& percent);
 
+	// Map destustor
 	~Map();
 
 private:

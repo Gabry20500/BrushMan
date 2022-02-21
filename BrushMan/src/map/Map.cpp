@@ -22,10 +22,15 @@ void Map::Print()
 {
 	for (int i = 0; i < height; i++)
 	{
+		std::cout << " - -";
+	}
+	std::cout << "\n";
+	for (int i = 0; i < height; i++)
+	{
 		std::cout << " ";
 		for (int j = 0; j < width; j++)
 		{
-			if (playerMap[i][j] != '@' && playerMap[i][j] != '~')
+			if (playerMap[i][j] != '@' && playerMap[i][j] != '~' && levelMap[i][j] == '/' || levelMap[i][j] == '#' || levelMap[i][j] == 'O' || levelMap[i][j] == '$')
 			{
 				std::cout << levelMap[i][j];
 			}
@@ -33,14 +38,15 @@ void Map::Print()
 			{
 				std::cout << playerMap[i][j];
 			}
-			std::cout << " | ";
+			std::cout << "   ";
 		}
-		std::cout << "\n";
+		std::cout << "|\n";
 		std::cout << " ";
 		for (int j = 0; j < width; j++)
 		{
-			std::cout << "- - ";
+			std::cout << "    ";
 		}
+
 		std::cout << "\n";
 	}
 }

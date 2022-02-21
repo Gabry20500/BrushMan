@@ -57,7 +57,6 @@ bool GameLoop(short width, short height, short level)
 		{
 			char c = 'n';
 			time(&actualTime);
-
 			if (actualTime >= lastTime + 2 || first || _kbhit()) //If the enemy are ready to move or is the first loop or the player press a char
 			{
 				if (actualTime >= lastTime + 2 || first) //First and second case, here enemies will move
@@ -76,11 +75,12 @@ bool GameLoop(short width, short height, short level)
 					map.Print();
 					map.CalculatePercent(perc);
 
-					std::cout << perc << std::endl;
 					if (perc >= 0.98f) {
 						return true;
 					}
 				}
+				std::cout << "Current Percentage: " << round(perc * 100) << "\n";
+				std::cout << "Current health: " << player.getHealth() << "\n";
 			}
 		}
 		break;
@@ -108,12 +108,13 @@ bool GameLoop(short width, short height, short level)
 					system("cls");
 					map.Print();
 					map.CalculatePercent(perc);
-
-					std::cout << perc << std::endl;
+					
 					if (perc >= 0.98f) {
 						return true;
 					}
 				}
+				std::cout << "Current Percentage: " << round(perc * 100) << "\n";
+				std::cout <<"Current health: " << player.getHealth()<< "\n";
 			}
 		}
 		break;
@@ -143,11 +144,12 @@ bool GameLoop(short width, short height, short level)
 					map.Print();
 					map.CalculatePercent(perc);
 
-					std::cout << perc << std::endl;
 					if (perc >= 0.98f) {
 						return true;
 					}
 				}
+				std::cout << "Current Percentage: " << round(perc * 100) << "\n";
+				std::cout << "Current health: " << player.getHealth() << "\n";
 			}
 		}
 		break;
@@ -181,11 +183,12 @@ bool GameLoop(short width, short height, short level)
 					map.Print();
 					map.CalculatePercent(perc);
 
-					std::cout << perc << std::endl;
 					if (perc >= 0.78f) {
 						return true;
 					}
 				}
+				std::cout << "Current Percentage: " << round(perc * 100) << "\n";
+				std::cout << "Current health: " << player.getHealth() << "\n";
 			}
 		}
 		break;
@@ -220,11 +223,12 @@ bool GameLoop(short width, short height, short level)
 					map.Print();
 					map.CalculatePercent(perc);
 
-					std::cout << perc << std::endl;
 					if (perc >= 0.78f) {
 						return true;
 					}
 				}
+				std::cout << "Current Percentage: " << round(perc * 100) << "\n";
+				std::cout << "Current health: " << player.getHealth() << "\n";
 			}
 		}
 		break;
@@ -261,11 +265,12 @@ bool GameLoop(short width, short height, short level)
 					map.Print();
 					map.CalculatePercent(perc);
 
-					std::cout << perc << std::endl;
 					if (perc >= 0.88f) {
 						return true;
 					}
 				}
+				std::cout << "Current Percentage: " << round(perc * 100) << "\n";
+				std::cout << "Current health: " << player.getHealth() << "\n";
 			}
 		}
 		break;
